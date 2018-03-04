@@ -1,0 +1,9 @@
+FROM apaesani/odoo-paesani:8.0
+MAINTAINER Adrian Paesani <adrian.paesani@gmail.com>
+
+USER root
+
+RUN apt-get update
+# ADD YOUR CUSTOM COMMANDS
+
+USER odoo
