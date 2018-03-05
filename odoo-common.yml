@@ -1,4 +1,4 @@
-version: '1'
+version: '2'
 services:
   odoo_base:
   image: $ODOO_IMAGE:$ODOO_VERSION

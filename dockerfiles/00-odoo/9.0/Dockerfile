@@ -39,12 +39,12 @@ ENV PYTHONIOENCODING utf-8
 ENV TERM xterm
 
 #Install Odoo dependencies
-RUN apt-get update -q && apt-get upgrade -q && \
-    apt-get install --allow-unauthenticated -q \
-    wget
+RUN apt-get update -q
+RUN apt-get upgrade -y
+RUN apt-get install --allow-unauthenticated -y wget
 
 RUN apt-get update -q && apt-get upgrade -q && \
-    apt-get install --allow-unauthenticated -q \
+    apt-get install --allow-unauthenticated -y \
     fontconfig \
     libevent-dev \
     libjpeg-dev \
@@ -57,7 +57,7 @@ RUN apt-get update -q && apt-get upgrade -q && \
     libxslt-dev \
     nano \
     npm \
-    postgresql-server-dev-9.4 \
+    postgresql-server-dev-9.5 \
     python \
     python-dev \
     xfonts-75dpi \
@@ -80,8 +80,8 @@ RUN adduser --home=/opt/odoo --disabled-password --gecos "" --shell=/bin/bash od
 RUN echo 'root:odoo' |chpasswd
 
 # Add Logrotate file
-ADD files/logrotate /etc/logrotate.d/odoo-server
-RUN chmod 755 /etc/logrotate.d/odoo-server
+#ADD files/logrotate /etc/logrotate.d/odoo-server
+#RUN chmod 755 /etc/logrotate.d/odoo-server
 
 # Add log directory
 RUN mkdir -p /var/log/odoo && \
